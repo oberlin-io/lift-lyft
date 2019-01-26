@@ -1,4 +1,7 @@
 # lyft-ride-receipt-scrape
-Scrapes lyft.com/drive/detail/route/&lt;ride receipt #>/breakdown from devtools console
 
-Copy and paste script in devtools console. Hope to turn it into a Chrome extension.
+## lyft-ride-scrape.js
+Scrapes lyft.com/drive/detail/route/&lt;ride receipt #>/breakdown from devtools. Copy and paste script in devtools console.
+
+## lift-lyft-receipt folder
+Chrome extension version.
