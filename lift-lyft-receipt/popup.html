@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<title>Extension template</title>
+	<script src="popup.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+	<style>
+	   body {
+	      width: 600px;
+	      font-family: 'Ubuntu', sans-serif;
+	      font-size: 15px;
+         background-color: #EA0B8C;
+         color: #ffffff;
+         /*#F36C9E,#409B83,#00B4AE,#E6507D,#B03837,#F36C9E,#409B83,#00B4AE*/
+	   }
+	   table {
+	      font-family: 'Ubuntu Mono', monospace;
+	      font-size: 14px;
+	      background-color: #ffffff;
+	      color: #EA0B8C;
+	      border-radius: 3px;
+	      box-shadow: 2px 2px 5px #7c064a;
+	   }
+	   img {
+	      width: 100px;
+	      float: right;
+	   }
+	   .colLeft {
+	      text-align: right;
+	      color: #7f7f7f;
+	   }
+	</style>
+</head>
+<body>
+	<img src="logo.png">
+	<div>
+   	<h2>Lift Lyft Receipt</h2>
+   	<p>
+   	   Scrapes receipt breakdown data for pages like:<br>
+   	   lyft.com/drive/detail/route/ (ride receipt #) /breakdown
+   	</p>
+	</div>
+   <div id='output'>
+      <table>
+         <tr>
+            <td>No output</td>
+         </tr>
+      </table>
+   </div>
+   <br>
+   <div>
+      <table>
+         <tr>
+            <td class="colLeft">Source code:</td>
+            <td>github.com/oberljn</td>
+         </tr>
+         <tr>
+            <td class="colLeft">Connect:</td>
+            <td>oberljn@gmail.com</td>
+         </tr>
+      </table>
+   </div>
+</body>
+</html>

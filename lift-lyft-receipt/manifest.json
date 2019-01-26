@@ -1,0 +1,27 @@
+{
+	"manifest_version": 2,
+
+	"name": "Lift Lyft Receipts",
+	"description": "Scrapes driver's Lyft receipt breakdown page (lyft.com/drive/detail/route/<ride receipt #>/breakdown)",
+	"version": "1.0",
+	"author": "John Oberlin, oberljn@gmail.com, oberl.info",
+
+	"background": {
+		"scripts": ["popup.js"],
+		"persistent": true
+	},
+
+	"permissions": [
+        "tabs",
+        "http://www.lyft.com/drive/detail/route/*/breakdown",
+        "https://www.lyft.com/drive/detail/route/*/breakdown"
+    ],
+	"browser_action": {
+		"default_icon": "logo.png",
+		"default_popup": "popup.html"
+	},
+	"icons": {
+	   "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png" }
+}
