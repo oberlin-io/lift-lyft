@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
 <head>
-	<title>Extension template</title>
+	<title>Lift Lyft</title>
 	<script src="popup.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
 	<style>
 	   body {
-	      width: 600px;
+	      width: 700px;
 	      font-family: 'Ubuntu', sans-serif;
 	      font-size: 15px;
          background-color: #EA0B8C;
@@ -19,46 +19,82 @@
 	      background-color: #ffffff;
 	      color: #EA0B8C;
 	      border-radius: 3px;
-	      box-shadow: 2px 2px 5px #7c064a;
+	      box-shadow: 1px 1px 5px #7c064a;
+	   }
+	   .dataTable {
+	      font-size: 12px;
+	      max-width: 53px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+	      
+	   }
+	   .dataRow {
+	      user-select: all;
 	   }
 	   img {
 	      width: 100px;
 	      float: right;
 	   }
+	   .label_ {
+	      color: #7f7f7f;
+	   }
 	   .colLeft {
 	      text-align: right;
-	      color: #7f7f7f;
+	   }
+	   #dataForCopy {
+	      background-color: #EA0B8C;
+	      border: none;
+	      color: #EA0B8C;
 	   }
 	</style>
 </head>
 <body>
-	<img src="logo.png">
+	<img src="icon128.png">
 	<div>
-   	<h2>Lift Lyft Receipt</h2>
+   	<h2>Lift Lyft</h2>
    	<p>
    	   Scrapes receipt breakdown data for pages like:<br>
    	   lyft.com/drive/detail/route/ (ride receipt #) /breakdown
    	</p>
 	</div>
-   <div id='output'>
-      <table>
-         <tr>
-            <td>No output</td>
-         </tr>
-      </table>
+	<br>
+   <div id='htmlTableOutput'>
    </div>
    <br>
+   <div id='inputContent'>
+   </div>
+   <br>
+   <br>
    <div>
-      <table>
+      <table >
          <tr>
-            <td class="colLeft">Source code:</td>
+            <td class="label_ colLeft" id="myInput">Source code:</td>
             <td>github.com/oberljn</td>
          </tr>
          <tr>
-            <td class="colLeft">Connect:</td>
+            <td class="label_ colLeft">Connect:</td>
             <td>oberljn@gmail.com</td>
+         </tr>
+         <tr>
+            <td class="label_ colLeft">Visit:</td>
+            <td>oberl.info</td>
          </tr>
       </table>
    </div>
+   
+   
+      
+   <img src="copy.png" width="40" onclick="copy()">
+      
+   <script>
+      function copy() {
+        
+        var copyText = document.getElementById("dataForCopy");
+        copyText.select();
+        document.execCommand("copy");
+        alert("Copied the text: " + copyText.value);
+      }
+   </script>
 </body>
 </html>
