@@ -2,99 +2,108 @@
 <html>
 <head>
 	<title>Lift Lyft</title>
+	
 	<script src="popup.js"></script>
+	<script src="copy.js"></script>
+	
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+	
 	<style>
 	   body {
-	      width: 700px;
+	      width: 500px;
 	      font-family: 'Ubuntu', sans-serif;
-	      font-size: 15px;
+	      font-size: 17px;
          background-color: #EA0B8C;
          color: #ffffff;
-         /*#F36C9E,#409B83,#00B4AE,#E6507D,#B03837,#F36C9E,#409B83,#00B4AE*/
+	   }
+	   /* Complete wrapper */
+	   .wrap {
+	      width: 100%;
+	   }
+	   
+	   /* Left side table area */
+      .tableArea {
+	      float: left;
+	      margin: 4px;
+	      width: 402px;
+	      /* background-color: blue; */
 	   }
 	   table {
+	      width: 100%;
 	      font-family: 'Ubuntu Mono', monospace;
-	      font-size: 14px;
 	      background-color: #ffffff;
 	      color: #EA0B8C;
 	      border-radius: 3px;
 	      box-shadow: 1px 1px 5px #7c064a;
 	   }
-	   .dataTable {
-	      font-size: 12px;
-	      max-width: 53px;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-	      
-	   }
-	   .dataRow {
-	      user-select: all;
-	   }
-	   img {
-	      width: 100px;
-	      float: right;
-	   }
-	   .label_ {
+      td {
+         padding: 4px;
+      }
+      .label_ {
 	      color: #7f7f7f;
-	   }
-	   .colLeft {
 	      text-align: right;
 	   }
+	   /* Hide the input field */
 	   #dataForCopy {
 	      background-color: #EA0B8C;
 	      border: none;
 	      color: #EA0B8C;
+	      width: 100%;
 	   }
+	   
+	   /* Right-side icons area */
+	   .iconsArea {
+	      float: left;
+	      width: 82px;
+	      margin: 4px;
+	      /* background-color: green; */
+	      
+	   }
+	   .iconImgs {
+	      width: 90%;
+	      margin: 5%;
+	   }
+	   
+	   /* Footer info*/
+	   .footer {
+	      width: 100%;
+	      margin: auto;
+	      clear: both;
+	   }
+	   .info {
+	      
+	      user-select: all;
+	   }
+	   
 	</style>
 </head>
 <body>
-	<img src="icon128.png">
-	<div>
-   	<h2>Lift Lyft</h2>
-   	<p>
-   	   Scrapes receipt breakdown data for pages like:<br>
-   	   lyft.com/drive/detail/route/ (ride receipt #) /breakdown
-   	</p>
-	</div>
-	<br>
-   <div id='htmlTableOutput'>
-   </div>
-   <br>
-   <div id='inputContent'>
-   </div>
-   <br>
-   <br>
-   <div>
-      <table >
-         <tr>
-            <td class="label_ colLeft" id="myInput">Source code:</td>
-            <td>github.com/oberljn</td>
-         </tr>
-         <tr>
-            <td class="label_ colLeft">Connect:</td>
-            <td>oberljn@gmail.com</td>
-         </tr>
-         <tr>
-            <td class="label_ colLeft">Visit:</td>
-            <td>oberl.info</td>
-         </tr>
-      </table>
-   </div>
-   
-   
+   <div class="wrap">
+   	<div class="tableArea">
+         <div id='htmlTableOutput'></div>
+         <br>
+         <div id='htmlInputOutput'></div>
+   	</div>
+   	
+   	<div class="iconsArea">
+   	   <img class="iconImgs" src="icon128.png">
+   	   <br>
+         <img class="iconImgs" id="copy" src="copy.png" >
+   	</div>
       
-   <img src="copy.png" width="40" onclick="copy()">
-      
-   <script>
-      function copy() {
-        
-        var copyText = document.getElementById("dataForCopy");
-        copyText.select();
-        document.execCommand("copy");
-        alert("Copied the text: " + copyText.value);
-      }
-   </script>
+      <div class="footer">
+         
+         <b>Only for pages such as:</b>
+         <br>
+         lyft.com/drive/detail/route/ [ride receipt #] /breakdown
+         <br>
+         <br>
+         <b>Contact:</b>
+         <br>
+         <span class="info">oberljn@gmail.com</span>, <span class="info">github.com/oberljn/lift-lyft</span>
+      </div>
+
+   </div>
+
 </body>
 </html>

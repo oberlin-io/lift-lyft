@@ -26,22 +26,23 @@ chrome.runtime.onMessage.addListener(function (message) {
    ];
 
    // Insert data into table according to labelArray
-   var tableContent = "<table class='dataTable'>\n";
+   var tableContent = "<table>\n";
    for (i = 0; i < labelArray.length; i++) {
-      tableContent += "<tr><td class='label_ dataTable'>" + labelArray[i] + "</td>\n<td>" + message[labelArray[i]] + "</td>\n</tr>\n";
+      tableContent += "<tr><td class='label_'>" + labelArray[i] + "</td>\n<td>" + message[labelArray[i]] + "</td>\n</tr>\n";
    }
    
    tableContent += "</table>\n" ;
    
    // Insert data into input value field for autocopy
-   var inputContent = "<input type='text' id='dataForCopy' value='"
+   var inputContent = "<input type='text' id='dataForCopy' value='";
    for (i = 0; i < labelArray.length; i++) {
-      inputContent += message[labelArray[i]] + "&#9;"
+      inputContent += message[labelArray[i]] + "&#9;";
    }
-   inputContent += "' />"
+   inputContent += "' />";
+   
    
 	document.getElementById('htmlTableOutput').innerHTML = tableContent;
 	
-	document.getElementById('htmlTableOutput').innerHTML = inputContent;
+	document.getElementById('htmlInputOutput').innerHTML = inputContent;
 	
 });

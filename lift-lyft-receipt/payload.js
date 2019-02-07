@@ -14,11 +14,13 @@ function checkNull(qSelectorStr) {
    else {false}
 }
 
+
 // Store in JSON format
 var data = {};
 
+
 // Ride receipt #
-selector = "div.align-center"
+selector = "div.align-center";
 
 if (checkNull(selector) === true) {data["Ride Receipt #"] = null}
 else {
@@ -27,6 +29,7 @@ else {
       .innerText
       .match(/^Ride Receipt #: (.*$)/)[1];
 }
+
 
 // Date
 selector = "div.p-y-m"
@@ -41,7 +44,7 @@ else {
 
 
 // Pick-up
-selector = "strong.ng-binding"
+selector = "strong.ng-binding";
 
 if (checkNull(selector) === true) {data["Pick-up"] = null}
 else {
@@ -53,7 +56,7 @@ else {
 
 
 // Drop-off
-selector = "strong.ng-binding"
+selector = "strong.ng-binding";
 
 if (checkNull(selector) === true) {data["Drop-off"] = null}
 else {
@@ -64,8 +67,9 @@ else {
    ;
 }
 
+
 // Received: Earnings
-selector = "div.line-item-ride_payments"
+selector = "div.line-item-ride_payments";
 
 if (checkNull(selector) === true) {data["Received: Earnings"] = null}
 else {
@@ -77,9 +81,8 @@ else {
 }
 
 
-
 // Received: Tips
-selector = "div.line-item-tips"
+selector = "div.line-item-tips";
 if (document.querySelector(selector) === null)
    {data["Received: Tips"] = null}
    else
@@ -93,9 +96,8 @@ if (document.querySelector(selector) === null)
    }
 
 
-
 // Received: Prime Time
-selector = "div.line-item-prime_time"
+selector = "div.line-item-prime_time";
 if (document.querySelector(selector) === null)
    {data["Received: Prime Time"] = null}
    else
@@ -108,23 +110,21 @@ if (document.querySelector(selector) === null)
    }
 
 
-
-
 // Received: Total
-selector = "div.line-item-"
+selector = "div.line-item-";
 if (document.querySelector(selector) === null)
    {data["Received: Total"] = null}
-   else{
-   
-data["Received: Total"] = document
-   .querySelectorAll(selector)[0]
-   .querySelectorAll("div.ng-binding")[1]
-   .innerText
-;}
+   else
+   {
+      data["Received: Total"] = document
+         .querySelectorAll(selector)[0]
+         .querySelectorAll("div.ng-binding")[1]
+         .innerText;
+}
 
 
 // Passenger: Ride Payments
-selector = "div.line-item-pax_payments"
+selector = "div.line-item-pax_payments";
 if (document.querySelector(selector) === null)
    {data["Passenger: Ride Payments"] = null}
    else{
@@ -135,8 +135,9 @@ if (document.querySelector(selector) === null)
    ;
    }
 
+
 // Passenger: Tips
-selector = "div.line-item-pax_tips"
+selector = "div.line-item-pax_tips";
 
 if (document.querySelector(selector) === null)
    {data["Passenger: Tips"] = null}
@@ -151,11 +152,9 @@ if (document.querySelector(selector) === null)
    }
 
 
-
-
 // Passenger: Total
 // Technically, nullCheck is not checking this one
-selector = "div.line-item-"
+selector = "div.line-item-";
 
 if (document.querySelector(selector) === null)
    {data["Passenger: Total"] = null}
@@ -169,22 +168,19 @@ if (document.querySelector(selector) === null)
    }
 
 
-// Map
-//if (document.querySelector('div.map').getAttribute("style")
-//   .match(/^background-image:url\((.*)\)/)[1] === null) {data["Map"] = null }
-//   else {
-//data["Map"] = document.querySelector('div.map').getAttribute("style")
-//   .match(/^background-image:url\((.*)\)/)[1]
-//   }
+//Map
+if (document.querySelector('div.map').getAttribute("style")
+   .match(/^background-image:url\((.*)\)/)[1] === null) {data["Map"] = null }
+   else
+   {
+      data["Map"] = document.querySelector('div.map').getAttribute("style")
+         .match(/^background-image:url\((.*)\)/)[1];
+   }
 
 
-
-
-
-
-
- 
+// For testing
 //console.log(data)
+
 
 // Send scraped data as a Chrome message
 chrome.runtime.sendMessage(data);
