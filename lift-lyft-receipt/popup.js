@@ -1,3 +1,5 @@
+// oberl.info  |  oberljn@gmail.com
+
 // Inject the payload.js script into the current tab after the popout has loaded
 window.addEventListener('load', function (evt) {
 	chrome.extension.getBackgroundPage().chrome.tabs.executeScript(null, {
@@ -20,25 +22,27 @@ chrome.runtime.onMessage.addListener(function (message) {
       "Received: Total",
       "Passenger: Ride Payments",
       "Passenger: Tips",
-      "Passenger: Prime Time",
       "Passenger: Total"
    ];
 
    // Insert data into table according to labelArray
-   var content = "<table>\n";
-   content += "<tr>\n";
+   var tableContent = "<table>\n";
    for (i = 0; i < labelArray.length; i++) {
-      content += "<td>" + labelArray[i] + "</td>\n";
+      tableContent += "<tr><td class='label_'>" + labelArray[i] + "</td>\n<td>" + message[labelArray[i]] + "</td>\n</tr>\n";
    }
-   content += "</tr>\n";
-   content += "<tr>\n";
+   
+   tableContent += "</table>\n" ;
+   
+   // Insert data into input value field for autocopy
+   var inputContent = "<input type='text' id='dataForCopy' value='";
    for (i = 0; i < labelArray.length; i++) {
-      content += "<td>" + data[labelArray[i]] + "</td>\n";
+      inputContent += message[labelArray[i]] + "&#9;";
    }
-   content += "</tr>\n";
-   content += "</table>\n" ;
+   inputContent += "' />";
    
-   //var output = JSON.stringify(message, null, 2);
    
-	document.getElementById('output').innerHTML = output;
+	document.getElementById('htmlTableOutput').innerHTML = tableContent;
+	
+	document.getElementById('htmlInputOutput').innerHTML = inputContent;
+	
 });
